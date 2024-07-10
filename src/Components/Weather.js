@@ -202,7 +202,7 @@ function Weather() {
                       </>
                     )}
                   <a className="right-body-temp">
-                    {weather.timelines.minutely[0].values.temperature}
+                    {weather.timelines.minutely[0].values.temperature}°C
                   </a>
                 </div>
                 <div className="right-body-box">
@@ -214,7 +214,7 @@ function Weather() {
                     )}
                   />
                   <a className="right-body-temp">
-                    {weather.timelines.daily[0].values.temperatureAvg}
+                    {weather.timelines.daily[0].values.temperatureAvg}°C
                   </a>
                 </div>
                 <div className="right-body-box">
@@ -226,7 +226,7 @@ function Weather() {
                     )}
                   />
                   <a className="right-body-temp">
-                    {weather.timelines.daily[1].values.temperatureAvg}
+                    {weather.timelines.daily[1].values.temperatureAvg}°C
                   </a>
                 </div>
                 <div className="right-body-box">
@@ -238,7 +238,7 @@ function Weather() {
                     )}
                   />
                   <a className="right-body-temp">
-                    {weather.timelines.daily[2].values.temperatureAvg}
+                    {weather.timelines.daily[2].values.temperatureAvg}°C
                   </a>
                 </div>
                 <div className="right-body-box">
@@ -250,7 +250,7 @@ function Weather() {
                     )}
                   />
                   <a className="right-body-temp">
-                    {weather.timelines.daily[3].values.temperatureAvg}
+                    {weather.timelines.daily[3].values.temperatureAvg}°C
                   </a>
                 </div>
                 <div className="right-body-box">
@@ -262,7 +262,7 @@ function Weather() {
                     )}
                   />
                   <a className="right-body-temp">
-                    {weather.timelines.daily[4].values.temperatureAvg}
+                    {weather.timelines.daily[4].values.temperatureAvg}°C
                   </a>
                 </div>
                 <div className="right-body-box">
@@ -274,7 +274,7 @@ function Weather() {
                     )}
                   />
                   <a className="right-body-temp">
-                    {weather.timelines.daily[5].values.temperatureAvg}
+                    {weather.timelines.daily[5].values.temperatureAvg}°C
                   </a>
                 </div>
               </div>
