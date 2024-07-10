@@ -1,3 +1,9 @@
+Completed this weather forecast in 2 days and spent 2 hours/day.</br>
+The left bar can be future scope to add maps or anything else.
+![image](https://github.com/Snugtroller/Weather-detailed/assets/113275985/6eedbc90-db2b-4482-a696-bc39ff5fc6d4)
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
