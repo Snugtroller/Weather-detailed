@@ -27,6 +27,7 @@
   box-shadow: 0 0 5px #89b6fb;
 }
 
+
 .left-bar {
   height: 650px;
   width: 100px;
@@ -55,11 +56,23 @@
 }
 .middle-body {
   height: 650px;
-  width: 800px;
+  width: 100px;
   margin-left: 200px;
   position: absolute;
   margin-top: 10px;
   border: none;
+}
+.middle-body-name{
+  font-size: 50px;
+}
+
+.middle-body-name h1 {
+  position: relative; 
+  z-index: 1; 
+  transition: z-index 0.3s; 
+}
+.middle-body-name h1:hover {
+  z-index: 10; 
 }
 
 .box1 {
@@ -68,10 +81,13 @@
   margin-top: 15px;
   color: white;
 }
-
+.weather-info{
+  font-size: 10px;
+}
 .weather-info-img {
   height: 200px;
-  margin-left: 580px;
+  margin-left: 550px;
+  margin-top: -30px;
 }
 
 .box {

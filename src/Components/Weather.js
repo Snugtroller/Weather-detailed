@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./Weather.css";
 import contrast from "./contrast.png";
 import cloudy from "./cloudy.png";
@@ -18,6 +18,9 @@ const api = {
 function Weather() {
   const [search, setSearch] = useState("");
   const [weather, setWeather] = useState(null);
+  const locationRef = useRef(null);
+  const [fontSize, setFontSize] = useState(50); // Default font size
+  const [isHovered, setIsHovered] = useState(false);
 
   const handleSearch = () => {
     fetch(`${api.base}?location=${search}&apikey=${api.key}`)
@@ -30,6 +33,34 @@ function Weather() {
         console.error("Error fetching the weather data:", error);
       });
   };
+
+  useEffect(() => {
+    const adjustFontSize = () => {
+      if (locationRef.current) {
+        const parentWidth = locationRef.current.parentElement.offsetWidth;
+        let newFontSize = 50; // Start with max font size
+
+        // Reduce the font size until it fits the container
+        while (
+          locationRef.current.scrollWidth > parentWidth &&
+          newFontSize > 10
+        ) {
+          newFontSize -= 1;
+          locationRef.current.style.fontSize = `${newFontSize}px`;
+        }
+
+        setFontSize(newFontSize);
+      }
+    };
+
+    adjustFontSize();
+
+    // Adjust font size on window resize
+    window.addEventListener("resize", adjustFontSize);
+    return () => {
+      window.removeEventListener("resize", adjustFontSize);
+    };
+  }, [weather]);
 
   const getWeatherImage = (temperature) => {
     if (temperature >= 30) {
@@ -60,13 +91,30 @@ function Weather() {
             weather.timelines.minutely &&
             weather.timelines.minutely.length > 0 && (
               <div className="weather-info">
-                <h1 style={{ fontSize: "50px", position: "absolute" }}>
-                  {search}
-                </h1>
+                <div className="middle-body-name">
+                  {weather && (
+                    <h1
+                      ref={locationRef}
+                      style={{
+                        whiteSpace: "nowrap",
+                        overflow: "hidden",
+                        textOverflow: "ellipsis",
+                        position: "relative",
+                        zIndex: isHovered ? 10 : 1,
+                        transition: "z-index 0.3s",
+                        width: "590px",
+                      }}
+                      onMouseEnter={() => setIsHovered(true)}
+                      onMouseLeave={() => setIsHovered(false)}
+                    >
+                      {weather?.location?.name || "Unknown Location"}
+                    </h1>
+                  )}
+                </div>
                 <h1
                   style={{
                     fontSize: "50px",
-                    marginTop: "120px",
+                    marginTop: "90px",
                     position: "absolute",
                   }}
                 >
